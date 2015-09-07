@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html ng-app="crudApp" lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>CRUD With MEAN</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/bootstrap-theme.css" />
+</head>
+<body>
+	
+	<div class="container col-md-8 col-md-offset-2 " ng-controller="crudCtrl" >
+		<h1>CRUD Application With MEAN</h1>
+		
+			<table class="table table-striped table-hover table-responsive">
+				<thead>
+					<tr>
+						<th>Name</th>				
+						<th>Email</th>				
+						<th>Number</th>
+						<th>Action</th>
+						<th>&nbsp;</th>				
+					</tr>				
+				</thead>	
+				<tbody>
+					<tr>
+						<td><input type="text" class="form-control" ng-model="contact.name" /></td>
+						<td><input type="text" class="form-control" ng-model="contact.email" /></td>
+						<td><input type="text" class="form-control" ng-model="contact.number" /></td>
+						<td><button class="btn btn-success" ng-click="addcontact()" >Add Contact</button></td>
+						<td><button class="btn btn-primary" ng-click="update()">Update</button></td>
+						<td><button class="btn btn-info" ng-click="clear()">Clear</button></td>
+					</tr>
+					<tr ng-repeat="contact in contactlist"> 
+						<td>{{contact.name}}</td>					
+						<td>{{contact.email}}</td>					
+						<td>{{contact.number}}</td>
+						<td><button class="btn btn-danger" ng-click="remove(contact._id)" >Remove</button></td>					
+						<td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>					
+					</tr>				
+				</tbody>		
+			</table>
+			
+			
+	</div>
+	
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="controllers/controller.js"></script>
+</body>
+</html>
